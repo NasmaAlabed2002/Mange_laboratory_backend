@@ -5,19 +5,19 @@ import { HydratedDocument, SchemaType, SchemaTypes } from 'mongoose';
 @Schema()
 export class MedicalReferral {
    
-
+   @Prop(
+      {
+         type: SchemaTypes.ObjectId , ref:'Doctor'
+      
+      })  
+     id_Doctor: Doctor; 
     @Prop(
         {
            type: SchemaTypes.ObjectId , ref:'Patient'
         
         })  
        id_Patient: Patient;
-     @Prop(
-        {
-           type: SchemaTypes.ObjectId , ref:'Doctor'
-        
-        })  
-       id_Doctor: Doctor;  
+  
 
 
 }
