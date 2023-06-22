@@ -16,7 +16,8 @@ export class AnaPartanalysis {
         type: SchemaTypes.ObjectId, ref:PartialAnalysis.name
     })
     id_partial_analysis: PartialAnalysis;
-
+    @Prop()
+    dis:string;
  
 
 }
