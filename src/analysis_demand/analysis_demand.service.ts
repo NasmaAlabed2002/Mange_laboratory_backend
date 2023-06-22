@@ -8,7 +8,7 @@ import { Model } from 'mongoose';
 @Injectable()
 export class AnalysisDemandService {
   constructor(@InjectModel(AnalysisDemand.name) private AnalysisDemandModel: Model<AnalysisDemand>) {}
-  create(createAnalysisDemandDto: CreateAnalysisDemandDto) {
+ async create(createAnalysisDemandDto: CreateAnalysisDemandDto) :  Promise<AnalysisDemand> {
     console.log(createAnalysisDemandDto);
     const createdAnalysisDemand = new this.AnalysisDemandModel(createAnalysisDemandDto);
     return createdAnalysisDemand.save(); 

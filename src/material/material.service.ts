@@ -7,7 +7,7 @@ import { InjectModel } from '@nestjs/mongoose';
 @Injectable()
 export class MaterialService {
   constructor(@InjectModel(Material.name) private MaterialModel: Model<Material>) {}
-  async create(createMaterialDto: CreateMaterialDto) {
+  async create(createMaterialDto: CreateMaterialDto) : Promise<Material>{
     console.log(createMaterialDto);
     
     const createdMaterial= new this.MaterialModel(createMaterialDto);

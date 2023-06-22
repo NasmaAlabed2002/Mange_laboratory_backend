@@ -18,6 +18,7 @@ import { AnalysisDemandModule } from './analysis_demand/analysis_demand.module';
 import { LabAnaPartanaModule } from './lab_ana_partana/lab_ana_partana.module';
 import { AnalysisResultsModule } from './analysis_results/analysis_results.module';
 import { OfferModule } from './offer/offer.module';
+import { OfferMaterialModule } from './offer_material/offer_material.module';
 
 
 @Module({
@@ -52,6 +53,8 @@ import { OfferModule } from './offer/offer.module';
   AnalysisResultsModule,
  
   OfferModule,
+ 
+  OfferMaterialModule,
  
   ],
 
