@@ -19,9 +19,9 @@ export class EmployeeController {
     return this.employeeService.findAll();
   }
   @Get(':name')
-  findOne(@Param() param: any) {
-    // return this.employeeService.findOne(+id);
-    return param;
+  findOne(@Param('id') id: string) {
+     return this.employeeService.findOne(id);
+
   }
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateEmployeeDto: UpdateEmployeeDto) {

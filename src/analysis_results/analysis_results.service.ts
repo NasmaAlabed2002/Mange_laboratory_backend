@@ -18,8 +18,8 @@ export class AnalysisResultsService {
     return `This action returns all analysisResults`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} analysisResult`;
+  async findOne(id) {
+    return await this.AnalysisResultModel.findOne({_id:id});
   }
 
  async update(id: string, updateAnalysisResultDto: UpdateAnalysisResultDto) {

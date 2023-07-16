@@ -18,8 +18,8 @@ export class DoctorService {
     return `This action returns all doctor`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} doctor`;
+  async findOne(id) {
+    return await this.DoctorModel.findOne({_id:id});
   }
 
   async update(id: string, updateDoctorDto: UpdateDoctorDto) {

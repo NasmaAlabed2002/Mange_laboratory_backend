@@ -18,8 +18,8 @@ export class EmployeeService {
     return `This action returns all employee`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} employee`;
+  async findOne(id) {
+    return await this.employeeModel.findOne({_id:id});
   }
 
   async update(id: string, updateEmployeeDto: UpdateEmployeeDto) {

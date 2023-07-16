@@ -20,7 +20,7 @@ export class AnalysisController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.analysisService.findOne(+id);
+    return this.analysisService.findOne(id);
   }
 
   @Patch(':id')

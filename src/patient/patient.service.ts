@@ -19,8 +19,8 @@ export class PatientService {
     return `This action returns all patient`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} patient`;
+  async findOne(id) {
+    return await this.PatientModel.findOne({_id:id});
   }
 
   async update(id: string, updatePatientDto: UpdatePatientDto) {

@@ -20,7 +20,7 @@ export class MedicalReferralController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.medicalReferralService.findOne(+id);
+    return this.medicalReferralService.findOne(id);
   }
 
   @Patch(':id')

@@ -19,8 +19,8 @@ export class DepartmentService {
     return `This action returns all department`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} department`;
+  async findOne(id) {
+    return await this.departmentModel.findOne({_id:id});
   }
 
   async update(id: string, updateDepartmentDto: UpdateDepartmentDto) {

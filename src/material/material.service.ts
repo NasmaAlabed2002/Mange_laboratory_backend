@@ -19,8 +19,8 @@ export class MaterialService {
     return `This action returns all material`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} material`;
+  async findOne(id) {
+    return await this.MaterialModel.findOne({_id:id});
   }
 
   async update(id: string, updateMaterialDto: UpdateMaterialDto) {

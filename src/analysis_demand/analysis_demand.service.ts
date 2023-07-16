@@ -18,8 +18,8 @@ export class AnalysisDemandService {
     return `This action returns all analysisDemand`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} analysisDemand`;
+  async findOne(id) {
+    return await this.AnalysisDemandModel.findOne({_id:id});
   }
 
  async  update(id: string, updateAnalysisDemandDto: UpdateAnalysisDemandDto) {

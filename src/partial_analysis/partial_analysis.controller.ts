@@ -21,16 +21,16 @@ export class PartialAnalysisController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.partialAnalysisService.findOne(+id);
+    return this.partialAnalysisService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updatePartialAnalysisDto: UpdatePartialAnalysisDto) {
-    return this.partialAnalysisService.update(+id, updatePartialAnalysisDto);
+    return this.partialAnalysisService.update(id, updatePartialAnalysisDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.partialAnalysisService.remove(+id);
+    return this.partialAnalysisService.remove(id);
   }
 }

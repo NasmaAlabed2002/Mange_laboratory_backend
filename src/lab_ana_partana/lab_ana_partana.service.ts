@@ -18,8 +18,8 @@ export class LabAnaPartanaService {
     return `This action returns all labAnaPartana`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} labAnaPartana`;
+  async findOne(id) {
+    return await this.LabAnaPartanaModel.findOne({_id:id});
   }
 
  async update(id: string, updateLabAnaPartanaDto: UpdateLabAnaPartanaDto) {

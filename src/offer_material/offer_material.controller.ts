@@ -20,7 +20,7 @@ export class OfferMaterialController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.offerMaterialService.findOne(+id);
+    return this.offerMaterialService.findOne(id);
   }
 
   @Patch(':id')

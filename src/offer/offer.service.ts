@@ -19,8 +19,8 @@ export class OfferService {
     return `This action returns all offer`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} offer`;
+  async findOne(id) {
+    return await this.OfferModel.findOne({_id:id});
   }
 
   async update(id: string, updateOfferDto: UpdateOfferDto) {

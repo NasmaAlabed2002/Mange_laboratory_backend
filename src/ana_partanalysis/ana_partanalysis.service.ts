@@ -18,10 +18,10 @@ export class AnaPartanalysisService {
     return `This action returns all anaPartanalysis`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} anaPartanalysis`;
+  async findOne(id) {
+    return await this.AnaPartanalysisModel.findOne({_id:id});
   }
-
+ 
   async update(id: string, updateAnaPartanalysisDto: UpdateAnaPartanalysisDto) {
   await this.AnaPartanalysisModel.findByIdAndUpdate(id, updateAnaPartanalysisDto, {new : true});
   }

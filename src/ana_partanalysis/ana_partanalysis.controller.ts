@@ -20,7 +20,7 @@ export class AnaPartanalysisController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.anaPartanalysisService.findOne(+id);
+    return this.anaPartanalysisService.findOne(id);
   }
 
   @Patch(':id')

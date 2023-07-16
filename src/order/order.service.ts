@@ -20,8 +20,8 @@ export class OrderService {
     return `This action returns all order`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} order`;
+  async findOne(id) {
+    return await this.OrderModel.findOne({_id:id});
   }
 
   async update(id: string, updateOrderDto: UpdateOrderDto) {

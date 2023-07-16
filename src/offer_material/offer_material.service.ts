@@ -18,8 +18,8 @@ export class OfferMaterialService {
     return `This action returns all offerMaterial`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} offerMaterial`;
+  async findOne(id) {
+    return await this.OfferMaterialModel.findOne({_id:id});
   }
 
  async update(id: string, updateOfferMaterialDto: UpdateOfferMaterialDto) {

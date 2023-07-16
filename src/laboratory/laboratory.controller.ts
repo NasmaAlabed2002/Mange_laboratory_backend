@@ -14,13 +14,14 @@ export class LaboratoryController {
   }
 
   @Get()
-  findAll() {
-    return this.laboratoryService.findAll();
+  async findAll() {
+    return await this.laboratoryService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.laboratoryService.findOne(+id);
+    return this.laboratoryService.findOne(id);
+
   }
 
   @Patch(':id')

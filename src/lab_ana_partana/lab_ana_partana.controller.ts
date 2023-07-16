@@ -20,7 +20,7 @@ export class LabAnaPartanaController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.labAnaPartanaService.findOne(+id);
+    return this.labAnaPartanaService.findOne(id);
   }
 
   @Patch(':id')

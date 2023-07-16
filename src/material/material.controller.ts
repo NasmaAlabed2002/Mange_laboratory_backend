@@ -20,7 +20,7 @@ export class MaterialController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.materialService.findOne(+id);
+    return this.materialService.findOne(id);
   }
 
   @Patch(':id')

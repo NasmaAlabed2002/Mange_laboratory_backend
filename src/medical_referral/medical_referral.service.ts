@@ -19,8 +19,8 @@ export class MedicalReferralService {
     return `This action returns all medicalReferral`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} medicalReferral`;
+  async findOne(id) {
+    return await this.MedicalReferralModel.findOne({_id:id});
   }
 
   async update(id: string, updateMedicalReferralDto: UpdateMedicalReferralDto) {

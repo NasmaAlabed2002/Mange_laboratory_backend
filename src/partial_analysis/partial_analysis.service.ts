@@ -18,15 +18,17 @@ export class PartialAnalysisService {
     return `This action returns all partialAnalysis`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} partialAnalysis`;
-  }
-
-  update(id: number, updatePartialAnalysisDto: UpdatePartialAnalysisDto) {
-    return `This action updates a #${id} partialAnalysis`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} partialAnalysis`;
-  }
+ 
+  async findOne(id) {
+    // console.log(id);
+      return await this.PartialAnalysisModel.findOne({_id:id});
+   }
+  
+   async update(id: string, updatePartialAnalysisDto: UpdatePartialAnalysisDto) {
+      await this.PartialAnalysisModel.findByIdAndUpdate(id, updatePartialAnalysisDto, {new : true});
+    }
+  
+   async remove(id: string) {
+    await this.PartialAnalysisModel.findByIdAndDelete(id);
+    }
 }

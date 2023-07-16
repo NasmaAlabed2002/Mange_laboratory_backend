@@ -26,9 +26,14 @@
     "@nestjs/mongoose": "^9.2.2",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/swagger": "^6.3.0",
+    "@nestjs/typeorm": "^10.0.0",
+    "cors": "^2.8.5",
+    "fly": "^4.5.7",
     "mongoose": "^7.2.0",
+    "mysql2": "^3.5.1",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "typeorm": "^0.3.17"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
