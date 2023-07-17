@@ -17,7 +17,7 @@ export class LaboratoryService {
   }
   
   findAll() {
-    return `This action returns all department`;
+    return ` NASMA This action returns all department`;
   }
 
   async findOne(id) {
