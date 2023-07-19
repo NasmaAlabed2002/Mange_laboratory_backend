@@ -14,12 +14,6 @@ export class EmployeeService {
     const createdemployee = new this.employeeModel(createemployeeDto);
     return createdemployee.save();
   }
-<<<<<<< HEAD
- async findAll() {
-    return await this.employeeModel.find();
-  }
-=======
->>>>>>> 024d784 (first commttt)
 
   async findAll() {
     return await this.employeeModel.find();
