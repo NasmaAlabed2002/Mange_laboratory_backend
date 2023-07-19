@@ -14,8 +14,8 @@ export class LabAnaPartanaService {
     return createdLabAnaPartana.save();
   }
 
-  findAll() {
-    return `This action returns all labAnaPartana`;
+  async findAll() {
+    return await this.LabAnaPartanaModel.find();
   }
 
   async findOne(id) {

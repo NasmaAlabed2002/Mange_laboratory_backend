@@ -15,8 +15,8 @@ export class OfferService {
     return createdOffer.save();
   }
 
-  findAll() {
-    return `This action returns all offer`;
+  async findAll() {
+    return await this.OfferModel.find();
   }
 
   async findOne(id) {

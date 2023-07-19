@@ -16,8 +16,8 @@ export class OrderService {
 
 
 
-  findAll() {
-    return `This action returns all order`;
+  async findAll() {
+    return await this.OrderModel.find();
   }
 
   async findOne(id) {

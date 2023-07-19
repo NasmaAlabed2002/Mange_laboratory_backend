@@ -14,8 +14,8 @@ export class PartialAnalysisService {
     return createdPartialAnalysis.save();
   }
 
-  findAll() {
-    return `This action returns all partialAnalysis`;
+  async findAll() {
+    return await this.PartialAnalysisModel.find();
   }
 
  

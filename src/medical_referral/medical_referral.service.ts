@@ -15,8 +15,8 @@ export class MedicalReferralService {
     return createdMedicalReferral.save();
   }
 
-  findAll() {
-    return `This action returns all medicalReferral`;
+  async findAll() {
+    return await this.MedicalReferralModel.find();
   }
 
   async findOne(id) {

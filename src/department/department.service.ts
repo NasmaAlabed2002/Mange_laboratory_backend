@@ -15,8 +15,8 @@ export class DepartmentService {
     return createddepartment.save();
   }
 
-  findAll() {
-    return `This action returns all department`;
+  async findAll() {
+    return await this.departmentModel.find();
   }
 
   async findOne(id) {

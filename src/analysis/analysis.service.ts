@@ -14,8 +14,8 @@ export class AnalysisService {
     return createdAnalysis.save(); 
   }
 
-  findAll() {
-    return `This action returns all analysis`;
+  async findAll() {
+    return await this.AnalysisModel.find();
   }
 
   async findOne(id) {

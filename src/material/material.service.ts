@@ -15,8 +15,8 @@ export class MaterialService {
   }
 
 
-  findAll() {
-    return `This action returns all material`;
+  async findAll() {
+    return await this.MaterialModel.find();
   }
 
   async findOne(id) {

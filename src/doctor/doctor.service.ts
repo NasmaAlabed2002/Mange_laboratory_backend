@@ -14,8 +14,9 @@ export class DoctorService {
     return createdDoctor.save();
   }
 
-  findAll() {
-    return `This action returns all doctor`;
+  async findAll() {
+    return await this.DoctorModel.find();
+
   }
 
   async findOne(id) {

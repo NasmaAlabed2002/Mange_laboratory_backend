@@ -14,8 +14,8 @@ export class OfferMaterialService {
     return createdOfferMaterial.save();
   }
 
-  findAll() {
-    return `This action returns all offerMaterial`;
+  async findAll() {
+    return await this.OfferMaterialModel.find();
   }
 
   async findOne(id) {

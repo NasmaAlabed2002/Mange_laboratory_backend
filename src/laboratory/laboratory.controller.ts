@@ -1,8 +1,9 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { LaboratoryService } from './laboratory.service';
 import { CreateLaboratoryDto } from './dto/create-laboratory.dto';
 import { UpdateLaboratoryDto } from './dto/update-laboratory.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { Query as ExpressQuery } from 'express-serve-static-core';
 @ApiTags('test')
 @Controller('laboratory')
 export class LaboratoryController {

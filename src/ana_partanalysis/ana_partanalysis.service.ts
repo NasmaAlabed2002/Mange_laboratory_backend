@@ -14,8 +14,8 @@ export class AnaPartanalysisService {
     return createdAnaPartanalysis.save();
   }
 
-  findAll() {
-    return `This action returns all anaPartanalysis`;
+  async findAll() {
+    return await this.AnaPartanalysisModel.find();
   }
 
   async findOne(id) {
