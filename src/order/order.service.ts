@@ -8,7 +8,7 @@ import { Model } from 'mongoose';
 export class OrderService {
   constructor(@InjectModel(Order.name) private OrderModel: Model<Order>) {}
   async create(createOrderDto: CreateOrderDto): Promise<Order> {
-    console.log(createOrderDto);
+    //console.log(createOrderDto);
     
     const createdOrder = new this.OrderModel(createOrderDto);
     return createdOrder.save();

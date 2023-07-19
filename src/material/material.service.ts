@@ -8,15 +8,15 @@ import { InjectModel } from '@nestjs/mongoose';
 export class MaterialService {
   constructor(@InjectModel(Material.name) private MaterialModel: Model<Material>) {}
   async create(createMaterialDto: CreateMaterialDto) : Promise<Material>{
-    console.log(createMaterialDto);
-    
+   // console.log(createMaterialDto);
     const createdMaterial= new this.MaterialModel(createMaterialDto);
     return createdMaterial.save();
   }
 
 
   async findAll() {
-    return await this.MaterialModel.find();
+    return await `nbsdasdasjfsdf vdsfsdf`;
+    //return await this.MaterialModel.find();
   }
 
   async findOne(id) {
