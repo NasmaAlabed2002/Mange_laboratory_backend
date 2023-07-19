@@ -14,6 +14,8 @@ name_manager:string;
 @Prop()
 address:string;
 @Prop()
+address_details:string;
+@Prop()
 number_phon:string;
 
 }
