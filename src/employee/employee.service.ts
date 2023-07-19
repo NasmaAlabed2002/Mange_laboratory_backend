@@ -14,8 +14,8 @@ export class EmployeeService {
     const createdemployee = new this.employeeModel(createemployeeDto);
     return createdemployee.save();
   }
-    findAll() {
-    return `This action returns all employee`;
+ async findAll() {
+    return await this.employeeModel.find();
   }
 
   async findOne(id) {
