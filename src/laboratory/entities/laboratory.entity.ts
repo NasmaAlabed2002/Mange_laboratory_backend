@@ -8,7 +8,7 @@ export type laboratoryDocument = HydratedDocument<Laboratory>;
 @Schema()
 export class Laboratory {
 @Prop()
-name: string;
+name_laboratory: string;
 @Prop()
 name_manager:string;
 @Prop()
