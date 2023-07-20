@@ -1,5 +1,7 @@
 export class CreatePatientDto {
-    name:string;
   
+    name:string;
+    password: string;
+
   }
   

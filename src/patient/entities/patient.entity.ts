@@ -11,6 +11,8 @@ export type EmployeeDocument = HydratedDocument<Patient>;
 export class Patient {
     @Prop()
     name: string;
+    @Prop()
+    password: string;
 
   }
   
