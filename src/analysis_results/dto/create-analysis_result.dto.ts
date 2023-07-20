@@ -1,1 +1,4 @@
-export class CreateAnalysisResultDto {}
+export class CreateAnalysisResultDto {
+
+    result:string;
+}

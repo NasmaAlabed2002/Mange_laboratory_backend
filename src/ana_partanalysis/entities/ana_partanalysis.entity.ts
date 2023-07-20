@@ -10,14 +10,13 @@ export class AnaPartanalysis {
     @Prop({
         type: SchemaTypes.ObjectId, ref:Analysis.name
         })
-    id_anaylsis: Analysis; 
+        id_anaylsis:Analysis; 
 
     @Prop({
         type: SchemaTypes.ObjectId, ref:PartialAnalysis.name
     })
-    id_partial_analysis: PartialAnalysis;
-    @Prop()
-    dis:string;
+    id_partial_analysis:PartialAnalysis;
+ 
  
 
 }

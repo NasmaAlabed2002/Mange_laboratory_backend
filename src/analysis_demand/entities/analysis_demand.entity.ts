@@ -25,6 +25,8 @@ export class AnalysisDemand {
         
         })  
        id_Employee: Employee;
+       @Prop()
+       result:string;
      
 }
 
