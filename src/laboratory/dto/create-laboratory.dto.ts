@@ -5,4 +5,5 @@ export class CreateLaboratoryDto {
     address:string;
     address_details:string;
     number_phon:string;
+    password:string;
 }
