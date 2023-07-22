@@ -7,14 +7,14 @@ export type AnalysisResultDocument = HydratedDocument<AnalysisResult>;
 
 @Schema()
 export class AnalysisResult {
-    @Prop(
-        {
-           type:  SchemaTypes.ObjectId , ref:AnalysisDemand.name
-        
-        })  
-       id_AnalysisDemand: AnalysisDemand;
     @Prop()
-  result:string;
+    id_group:string[];
+      //   {
+      //      type:  SchemaTypes.ObjectId , ref:AnalysisDemand.name
+        
+      //   })  
+      //  id_AnalysisDemand: AnalysisDemand;
+  
 }
 
 export const AnalysisResultchema= SchemaFactory.createForClass(AnalysisResult);

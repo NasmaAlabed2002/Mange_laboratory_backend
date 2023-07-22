@@ -1,4 +1,4 @@
 export class CreateAnalysisResultDto {
 
-    result:string;
+    id_group:string[];
 }
