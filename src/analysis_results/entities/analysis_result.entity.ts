@@ -8,7 +8,7 @@ export type AnalysisResultDocument = HydratedDocument<AnalysisResult>;
 @Schema()
 export class AnalysisResult {
     @Prop()
-    id_group:string[];
+    id_group: Array<100>;
       //   {
       //      type:  SchemaTypes.ObjectId , ref:AnalysisDemand.name
         
