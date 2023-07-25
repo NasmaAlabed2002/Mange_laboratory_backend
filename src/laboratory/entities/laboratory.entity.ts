@@ -19,6 +19,8 @@ address_details:string;
 number_phon:string;
 @Prop()
 password:string;
+@Prop()
+analysis_existing: string;
 
 }
 
