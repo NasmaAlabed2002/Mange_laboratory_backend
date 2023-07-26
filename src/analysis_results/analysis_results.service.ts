@@ -8,7 +8,7 @@ import { Model } from 'mongoose';
 @Injectable()
 export class AnalysisResultsService {
   constructor(@InjectModel(AnalysisResult.name) private AnalysisResultModel: Model<AnalysisResult>) {}
-  async create(createAnalysisResultDto: CreateAnalysisResultDto) {
+  async create(createAnalysisResultDto: CreateAnalysisResultDto): Promise<AnalysisResult> {
     console.log(createAnalysisResultDto);
     const createdAnalysisResult = new this.AnalysisResultModel(createAnalysisResultDto);
     return createdAnalysisResult.save();
@@ -18,7 +18,7 @@ export class AnalysisResultsService {
     return await this.AnalysisResultModel.find();
   }
 
-  async findOne(id: number) {
+  async findOne(id) {
     return await this.AnalysisResultModel.findOne({_id:id});
   }
 
