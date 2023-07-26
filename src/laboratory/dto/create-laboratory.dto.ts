@@ -6,4 +6,5 @@ export class CreateLaboratoryDto {
     address_details:string;
     number_phon:string;
     password:string;
+    analysis_existing: string;
 }

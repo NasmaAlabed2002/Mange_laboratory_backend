@@ -1,4 +1,1 @@
-export class CreateAnalysisResultDto {
-
-    result:string;
-}
+export class CreateAnalysisResultDto {}
