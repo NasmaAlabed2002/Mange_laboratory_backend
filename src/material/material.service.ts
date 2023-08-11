@@ -15,8 +15,7 @@ export class MaterialService {
 
 
   async findAll() {
-    return await `nbsdasdasjfsdf vdsfsdf`;
-    //return await this.MaterialModel.find();
+    return await this.MaterialModel.find();
   }
 
   async findOne(id) {
