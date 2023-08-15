@@ -26,5 +26,8 @@ export class Order {
     Quantity: string;
     @Prop()
     price: string;
+    @Prop()
+    order_date: Date;
+
 }
 export const Orderechema = SchemaFactory.createForClass(Order);

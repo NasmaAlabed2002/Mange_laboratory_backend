@@ -13,9 +13,6 @@ export class OrderService {
     const createdOrder = new this.OrderModel(createOrderDto);
     return createdOrder.save();
   }
-
-
-
   async findAll() {
     return await this.OrderModel.find();
   }
