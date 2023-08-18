@@ -15,7 +15,7 @@ export class Order {
     @Prop({
         type: SchemaTypes.ObjectId, ref: Laboratory.name
     })
-    id_laboratory: Laboratory;
+    id_Laboratory: Laboratory;
 
     @Prop({
         type: SchemaTypes.ObjectId, ref: Material.name

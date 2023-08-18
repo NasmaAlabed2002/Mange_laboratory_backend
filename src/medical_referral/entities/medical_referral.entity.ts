@@ -18,7 +18,7 @@ export class MedicalReferral {
         })  
        id_Patient: Patient;
   
-
+       medref_date: Date;
 
 }
   export const MedicalReferralchema= SchemaFactory.createForClass(MedicalReferral);

@@ -5,5 +5,6 @@ export class CreateMaterialDto {
     Expiry_date:Date;
     Quantity:string;
     price: string;
+    price_offer:string
  
 }

@@ -16,5 +16,8 @@ export class Material {
     Quantity:string;
     @Prop()
     price:string;
+    @Prop()
+    price_offer:string
+
 }
 export const Materialchema = SchemaFactory.createForClass(Material);
