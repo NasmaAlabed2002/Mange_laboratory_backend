@@ -8,6 +8,7 @@ export class CreateEmployeeDto {
     number_phon: string ;
     marital_status:string;
     date_employment:Date;
+    password:string;
   
   
 }

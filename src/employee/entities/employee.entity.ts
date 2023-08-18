@@ -30,6 +30,8 @@ export class Employee {
   marital_status:string;
   @Prop()
   date_employment:Date;
+  @Prop()
+  password:string;
 }
 
 export const Employeechema = SchemaFactory.createForClass(Employee);
