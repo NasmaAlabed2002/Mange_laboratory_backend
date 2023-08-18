@@ -17,7 +17,7 @@ export class MedicalReferral {
         
         })  
        id_Patient: Patient;
-  
+       @Prop()
        medref_date: Date;
 
 }
