@@ -20,7 +20,7 @@ export class LaboratoryController {
     @Param('id') id: string,
     @UploadedFile() image: Express.Multer.File,
   ){
-    const imageUrl = `New folder/photo_2024-03-29_02-15-45.jpg`;
+    const imageUrl = `photo/Screenshot (50).png`;
     const hotel = await this.laboratoryService.findById(id);
     hotel.imageUrl = imageUrl;
      return this.laboratoryService.update(id, hotel);
