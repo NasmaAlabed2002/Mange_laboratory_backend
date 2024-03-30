@@ -2,11 +2,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 import internal from 'stream';
-
-export type laboratoryDocument = HydratedDocument<Laboratory>;
+import { Document } from 'mongoose';
+// export type laboratoryDocument = HydratedDocument<Laboratory>;
 
 @Schema()
-export class Laboratory {
+export class Laboratory extends Document {
 @Prop()
 name_laboratory: string;
 @Prop()
@@ -22,6 +22,8 @@ password:string;
 @Prop()
 analysis_existing: string;
 
+@Prop({ required: true })
+imageUrl: string;
 }
 
-export const laboratorychema= SchemaFactory.createForClass(Laboratory);
+export const laboratorychema = SchemaFactory.createForClass(Laboratory);

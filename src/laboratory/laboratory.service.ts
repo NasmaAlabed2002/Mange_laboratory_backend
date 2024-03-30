@@ -18,6 +18,13 @@ export class LaboratoryService {
  async findAll() {
    return await this.LaboratoryModel.find();
   }
+  async getHotelById(id: string): Promise<Laboratory> {
+    return this.LaboratoryModel.findById(id).exec();
+  }
+
+  async findById(id) {
+    return await this.LaboratoryModel.findById({_id:id});
+  }
   async findOne(id) {
     return await this.LaboratoryModel.findOne({_id:id});
  }

@@ -3,7 +3,7 @@ import { DoctorService } from './doctor.service';
 import { CreateDoctorDto } from './dto/create-doctor.dto';
 import { UpdateDoctorDto } from './dto/update-doctor.dto';
 import { ApiTags } from '@nestjs/swagger';
-@ApiTags('test')
+@ApiTags('doctor')
 @Controller('doctor')
 export class DoctorController {
   constructor(private readonly doctorService: DoctorService) {}

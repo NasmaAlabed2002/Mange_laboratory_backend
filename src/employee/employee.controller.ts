@@ -3,7 +3,8 @@ import { EmployeeService } from './employee.service';
 import { CreateEmployeeDto } from './dto/create-employee.dto';
 import { UpdateEmployeeDto } from './dto/update-employee.dto';
 import { ApiTags } from '@nestjs/swagger';
-@ApiTags('test')
+
+@ApiTags('employee')
 @Controller('employee')
 
 export class EmployeeController {
