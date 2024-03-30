@@ -3,7 +3,8 @@ import { LaboratoryService } from './laboratory.service';
 import { CreateLaboratoryDto } from './dto/create-laboratory.dto';
 import { UpdateLaboratoryDto } from './dto/update-laboratory.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
-
+import { ApiCreatedResponse, ApiOkResponse, ApiParam } from '@nestjs/swagger';
+import { Laboratory } from './entities/laboratory.entity';
 //@ApiTags('test')
 @Controller('laboratory')
 export class LaboratoryController {
@@ -13,18 +14,28 @@ export class LaboratoryController {
   create(@Body() createLaboratoryDto: CreateLaboratoryDto) {
     return this.laboratoryService.create(createLaboratoryDto);
   }
-
-  @Post(':id/upload')
+  @Post(':id/images')
   @UseInterceptors(FileInterceptor('image'))
+  @ApiCreatedResponse({ type: Laboratory })
+  @ApiParam({ name: 'id', type: String })
   async uploadImage(
     @Param('id') id: string,
     @UploadedFile() image: Express.Multer.File,
-  ){
+  ) {
     const imageUrl = `photo/Screenshot (50).png`;
-    const hotel = await this.laboratoryService.findById(id);
-    hotel.imageUrl = imageUrl;
-     return this.laboratoryService.update(id, hotel);
+    return this.laboratoryService.addImageToHotel(id, imageUrl);
   }
+  // @Post(':id/upload')
+  // @UseInterceptors(FileInterceptor('image'))
+  // async uploadImage(
+  //   @Param('id') id: string,
+  //   @UploadedFile() image: Express.Multer.File,
+  // ){
+  //   const imageUrl = `photo/Screenshot (50).png`;
+  //   const hotel = await this.laboratoryService.findById(id);
+  //   hotel.imageUrl = imageUrl;
+  //    return this.laboratoryService.update(id, hotel);
+  // }
 
   @Get()
   async findAll() {

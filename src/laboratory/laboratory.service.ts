@@ -18,9 +18,7 @@ export class LaboratoryService {
  async findAll() {
    return await this.LaboratoryModel.find();
   }
-  async getHotelById(id: string): Promise<Laboratory> {
-    return this.LaboratoryModel.findById(id).exec();
-  }
+
 
   async findById(id) {
     return await this.LaboratoryModel.findById({_id:id});
@@ -28,6 +26,18 @@ export class LaboratoryService {
   async findOne(id) {
     return await this.LaboratoryModel.findOne({_id:id});
  }
+ async getHotelById(id: string): Promise<Laboratory> {
+  return this.LaboratoryModel.findById(id).exec();
+}
+
+async addImageToHotel(id: string, imageUrl: string): Promise<Laboratory> {
+  return this.LaboratoryModel.findByIdAndUpdate(
+    id,
+    { $push: { images: imageUrl } },
+    { new: true },
+  );
+}
+
  async update(id: string, updateLaboratoryDto: UpdateLaboratoryDto) {
     await this.LaboratoryModel.findByIdAndUpdate(id, updateLaboratoryDto, {new : true});
   }
