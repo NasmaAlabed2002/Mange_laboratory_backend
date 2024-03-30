@@ -13,7 +13,7 @@ export class LaboratoryController {
   create(@Body() createLaboratoryDto: CreateLaboratoryDto) {
     return this.laboratoryService.create(createLaboratoryDto);
   }
-  
+
   @Post(':id/upload')
   @UseInterceptors(FileInterceptor('image'))
   async uploadImage(
@@ -26,9 +26,6 @@ export class LaboratoryController {
      return this.laboratoryService.update(id, hotel);
   }
 
- 
-
-  
   @Get()
   async findAll() {
     return await this.laboratoryService.findAll();
