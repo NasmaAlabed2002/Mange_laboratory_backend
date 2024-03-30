@@ -9,6 +9,11 @@ import { FileInterceptor } from '@nestjs/platform-express';
 export class LaboratoryController {
   constructor(private readonly laboratoryService: LaboratoryService) {}
   
+  @Post()
+  create(@Body() createLaboratoryDto: CreateLaboratoryDto) {
+    return this.laboratoryService.create(createLaboratoryDto);
+  }
+  
   @Post(':id/upload')
   @UseInterceptors(FileInterceptor('image'))
   async uploadImage(
@@ -21,30 +26,27 @@ export class LaboratoryController {
      return this.laboratoryService.update(id, hotel);
   }
 
-  // @Post()
-  // create(@Body() createLaboratoryDto: CreateLaboratoryDto) {
-  //   return this.laboratoryService.create(createLaboratoryDto);
-  // }
+ 
 
   
-  // @Get()
-  // async findAll() {
-  //   return await this.laboratoryService.findAll();
-  // }
+  @Get()
+  async findAll() {
+    return await this.laboratoryService.findAll();
+  }
 
-  // @Get(':id')
-  // findOne(@Param('id') id: string) {
-  //   return this.laboratoryService.findOne(id);
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.laboratoryService.findOne(id);
 
-  // }
+  }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateLaboratoryDto: UpdateLaboratoryDto) {
-  //   return this.laboratoryService.update(id, updateLaboratoryDto);
-  // }
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateLaboratoryDto: UpdateLaboratoryDto) {
+    return this.laboratoryService.update(id, updateLaboratoryDto);
+  }
 
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.laboratoryService.remove(id);
-  // }
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.laboratoryService.remove(id);
+  }
 }
