@@ -14,7 +14,7 @@ export class LaboratoryService {
 
   async create(name_laboratory :string, name_manager:string ,address: string ,address_details: string ,number_phon:string, password:string, analysis_existing:string, image:string) : Promise<Laboratory> {
     const createdLaboratory = new this.LaboratoryModel({ name_laboratory, name_manager ,address,address_details,number_phon, password, analysis_existing , image: imagePath});
-    // console.log(createLaboratoryDto);
+    console.log(createdLaboratory);
     return createdLaboratory.save();
   }
   async getLaboratoryImage(id: string): Promise<Buffer> {
