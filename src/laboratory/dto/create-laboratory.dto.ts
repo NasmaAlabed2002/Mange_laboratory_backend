@@ -1,14 +1,36 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { IsString } from 'class-validator';
 export class CreateLaboratoryDto {
-
-    name_laboratory:string;
-    name_manager:string;
-    address:string;
-    address_details:string;
-    number_phon:string;
-    password:string;
-    analysis_existing: string;
     @ApiProperty()
-    imageUrl: any;
+    @IsString()
+    name_laboratory:string;
+
+    @ApiProperty()
+    @IsString()
+    name_manager:string;
+
+    @ApiProperty()
+    @IsString()
+    address:string;
+
+    @ApiProperty()
+    @IsString()
+    address_details:string;
+
+    @ApiProperty()
+    @IsString()
+    number_phon:string;
+
+    @ApiProperty()
+    @IsString()
+    password:string;
+
+    @ApiProperty()
+    @IsString()
+    analysis_existing: string;
+
+    @ApiProperty()
+    @IsString()
+    image: string;
 
 }

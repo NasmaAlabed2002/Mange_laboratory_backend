@@ -1,7 +1,6 @@
 
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
-import internal from 'stream';
 import { Document } from 'mongoose';
 // export type laboratoryDocument = HydratedDocument<Laboratory>;
 
@@ -21,9 +20,8 @@ number_phon:string;
 password:string;
 @Prop()
 analysis_existing: string;
-
-@Prop({ required: true })
-imageUrl: string;
+@Prop()
+image: string;
 }
 
 export const laboratorychema = SchemaFactory.createForClass(Laboratory);
