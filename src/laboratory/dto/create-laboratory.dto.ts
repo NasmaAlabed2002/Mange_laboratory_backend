@@ -31,6 +31,6 @@ export class CreateLaboratoryDto {
 
     @ApiProperty()
     @IsString()
-    image: string;
-
+    imageUrl: string;
+    
 }

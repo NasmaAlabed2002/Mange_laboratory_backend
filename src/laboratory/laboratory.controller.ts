@@ -25,18 +25,18 @@ export class LaboratoryController {
         number_phon: { type: 'string' },
         password: { type: 'string' },
         analysis_existing: { type: 'string' },
-        image: { type: 'string', format: 'binary' },
+        imageUrl: { type: 'string', format: 'binary' },
       },
     },
   })
   @ApiResponse({ status: 201, description: 'Hotel and image uploaded successfully!' })
-  async createHotel(
+  async createLaboratory(
     @UploadedFile() file: Express.Multer.File,
     @Body() createLaboratoryDto: CreateLaboratoryDto,
   ){
     const { name_laboratory, name_manager , address, address_details, number_phon, password, analysis_existing } = createLaboratoryDto;
     const imagePath = await this.laboratoryService.saveImage(file);
-    return this.laboratoryService.create( name_laboratory, name_manager ,address,address_details,number_phon, password, analysis_existing , imagePath);
+    return this.laboratoryService.createLab( name_laboratory, name_manager ,address,address_details,number_phon, password, analysis_existing , imagePath);
   
   }
  

@@ -12,15 +12,16 @@ import { createWriteStream } from 'fs';
 export class LaboratoryService {
   constructor(@InjectModel(Laboratory.name) private LaboratoryModel: Model<Laboratory>) {}
 
-  async create(name_laboratory :string, name_manager:string ,address: string ,address_details: string ,number_phon:string, password:string, analysis_existing:string, image:string) : Promise<Laboratory> {
-    const createdLaboratory = new this.LaboratoryModel({ name_laboratory, name_manager ,address,address_details,number_phon, password, analysis_existing , image: imagePath});
+  async createLab(name_laboratory :string, name_manager:string ,address: string ,address_details: string ,number_phon:string, password:string, analysis_existing:string, imagePath:string) : Promise<Laboratory> {
+    const createdLaboratory = new this.LaboratoryModel({ name_laboratory, name_manager ,address,address_details,number_phon, password, analysis_existing , imageUrl:imagePath});
     console.log(createdLaboratory);
     return createdLaboratory.save();
   }
+
   async getLaboratoryImage(id: string): Promise<Buffer> {
     const Laboratory = await this.LaboratoryModel.findById(id).exec();
     if (!Laboratory) throw new NotFoundException('Hotel not found');
-    return Buffer.from(Laboratory.image, 'base64');
+    return Buffer.from(Laboratory.imageUrl, 'base64');
   }
 
   async saveImage(file: Express.Multer.File): Promise<string> {
@@ -42,10 +43,17 @@ export class LaboratoryService {
       writeStream.end();
     });
   }
+  
 
+  async create(createLaboratoryDto: CreateLaboratoryDto) : Promise<Laboratory> {
+    console.log(createLaboratoryDto);
+    const createdLaboratory = new this.LaboratoryModel(createLaboratoryDto);
+    return createdLaboratory.save();
+  }
  async findAll() {
    return await this.LaboratoryModel.find();
   }
+
 
   async findById(id) {
     return await this.LaboratoryModel.findById({_id:id});
@@ -53,9 +61,17 @@ export class LaboratoryService {
   async findOne(id) {
     return await this.LaboratoryModel.findOne({_id:id});
  }
-//  async getLaboratoryById(id: string): Promise<Laboratory> {
-//   return this.LaboratoryModel.findById(id).exec();
-// }
+ async getHotelById(id: string): Promise<Laboratory> {
+  return this.LaboratoryModel.findById(id).exec();
+}
+
+async addImageToHotel(id: string, imageUrl: string): Promise<Laboratory> {
+  return this.LaboratoryModel.findByIdAndUpdate(
+    id,
+    { $push: { images: imageUrl } },
+    { new: true },
+  );
+}
 
  async update(id: string, updateLaboratoryDto: UpdateLaboratoryDto) {
     await this.LaboratoryModel.findByIdAndUpdate(id, updateLaboratoryDto, {new : true});
@@ -64,12 +80,5 @@ export class LaboratoryService {
  async remove(id: string) {
   await this.LaboratoryModel.findByIdAndDelete(id);
   }
-  // async addImageToHotel(id: string, imageUrl: string): Promise<Laboratory> {
-  //   return this.LaboratoryModel.findByIdAndUpdate(
-  //     id,
-  //     { $push: { images: imageUrl } },
-  //     { new: true },
-  //   );
-  // }
 }
 
