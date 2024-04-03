@@ -26,7 +26,7 @@ export class LaboratoryService {
 
   async saveImage(file: Express.Multer.File): Promise<string> {
     const fileName = uuidv4(); // Generate a unique filename
-    const filePath = `New folder/${fileName}`;// Specify the desired file path
+    const filePath = `pictures/${fileName}`;// Specify the desired file path
 
     return new Promise((resolve, reject) => {
       const writeStream = createWriteStream(filePath);

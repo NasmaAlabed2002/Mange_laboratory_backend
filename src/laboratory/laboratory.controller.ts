@@ -3,9 +3,9 @@ import { LaboratoryService } from './laboratory.service';
 import { CreateLaboratoryDto } from './dto/create-laboratory.dto';
 import { UpdateLaboratoryDto } from './dto/update-laboratory.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
-import {ApiBody, ApiConsumes, ApiResponse, ApiCreatedResponse, ApiOkResponse, ApiParam } from '@nestjs/swagger';
+import {ApiBody, ApiConsumes, ApiResponse, ApiCreatedResponse, ApiOkResponse, ApiParam , ApiTags} from '@nestjs/swagger';
 import { Laboratory } from './entities/laboratory.entity';
-//@ApiTags('test')
+@ApiTags('test')
 @Controller('laboratory')
 export class LaboratoryController {
   constructor(private readonly laboratoryService: LaboratoryService) {}
