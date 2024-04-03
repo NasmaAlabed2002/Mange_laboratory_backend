@@ -13,7 +13,7 @@ export class LaboratoryService {
   constructor(@InjectModel(Laboratory.name) private LaboratoryModel: Model<Laboratory>) {}
 
   async createLab(name_laboratory :string, name_manager:string ,address: string ,address_details: string ,number_phon:string, password:string, analysis_existing:string, imagePath:string) : Promise<Laboratory> {
-    const createdLaboratory = new this.LaboratoryModel({ name_laboratory, name_manager ,address,address_details,number_phon, password, analysis_existing , imageUrl:imagePath});
+    const createdLaboratory = new this.LaboratoryModel({ name_laboratory, name_manager ,address,address_details,number_phon, password, analysis_existing , image:imagePath});
     console.log(createdLaboratory);
     return createdLaboratory.save();
   }
@@ -21,7 +21,7 @@ export class LaboratoryService {
   async getLaboratoryImage(id: string): Promise<Buffer> {
     const Laboratory = await this.LaboratoryModel.findById(id).exec();
     if (!Laboratory) throw new NotFoundException('Hotel not found');
-    return Buffer.from(Laboratory.imageUrl, 'base64');
+    return Buffer.from(Laboratory.image, 'base64');
   }
 
   async saveImage(file: Express.Multer.File): Promise<string> {

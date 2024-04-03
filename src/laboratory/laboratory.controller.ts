@@ -25,7 +25,7 @@ export class LaboratoryController {
         number_phon: { type: 'string' },
         password: { type: 'string' },
         analysis_existing: { type: 'string' },
-        imageUrl: { type: 'string', format: 'binary' },
+        image: { type: 'string', format: 'binary' },
       },
     },
   })

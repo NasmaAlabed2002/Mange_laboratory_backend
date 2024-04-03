@@ -21,7 +21,7 @@ password:string;
 @Prop()
 analysis_existing: string;
 @Prop()
-imageUrl: string;
+image: string;
 }
 
 export const laboratorychema = SchemaFactory.createForClass(Laboratory);

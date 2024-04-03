@@ -30,6 +30,6 @@ export class CreateLaboratoryDto {
     analysis_existing: string;
 
     @ApiProperty()
-    imageUrl: string;
+    image: string;
     
 }
