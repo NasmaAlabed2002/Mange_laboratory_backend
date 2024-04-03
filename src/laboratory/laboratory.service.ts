@@ -61,17 +61,17 @@ export class LaboratoryService {
   async findOne(id) {
     return await this.LaboratoryModel.findOne({_id:id});
  }
- async getHotelById(id: string): Promise<Laboratory> {
-  return this.LaboratoryModel.findById(id).exec();
-}
+//  async getHotelById(id: string): Promise<Laboratory> {
+//   return this.LaboratoryModel.findById(id).exec();
+// }
 
-async addImageToHotel(id: string, imageUrl: string): Promise<Laboratory> {
-  return this.LaboratoryModel.findByIdAndUpdate(
-    id,
-    { $push: { images: imageUrl } },
-    { new: true },
-  );
-}
+// async addImageToHotel(id: string, imageUrl: string): Promise<Laboratory> {
+//   return this.LaboratoryModel.findByIdAndUpdate(
+//     id,
+//     { $push: { images: imageUrl } },
+//     { new: true },
+//   );
+// }
 
  async update(id: string, updateLaboratoryDto: UpdateLaboratoryDto) {
     await this.LaboratoryModel.findByIdAndUpdate(id, updateLaboratoryDto, {new : true});
