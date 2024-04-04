@@ -60,7 +60,11 @@ export class LaboratoryController {
     return this.laboratoryService.findOne(id);
 
   }
+  @Get(':id:image')
+  getLaboratoryImage(@Param('id') id: string) {
+    return this.laboratoryService.getLaboratoryImage(id);
 
+  }
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateLaboratoryDto: UpdateLaboratoryDto) {
     return this.laboratoryService.update(id, updateLaboratoryDto);
