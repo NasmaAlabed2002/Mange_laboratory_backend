@@ -39,13 +39,13 @@ getImageStream(imageId): GridFSBucketReadStream {
     console.log(createdLaboratory);
     return createdLaboratory.save();
   }
-
-  async getLaboratoryImage(id: string): Promise<Buffer> {
+  async getLaboratoryImage(id: string): Promise<Uint8Array> {
     const Laboratory = await this.LaboratoryModel.findById(id).exec();
-    if (!Laboratory) throw new NotFoundException('Hotel not found');
-    return Buffer.from(Laboratory.image, 'base64');
+    if (!Laboratory) {
+      throw new NotFoundException('Hotel not found');
+    }
+    return new Uint8Array(Buffer.from(Laboratory.image, 'base64'));
   }
-
   async saveImage(file: Express.Multer.File): Promise<string> {
     const fileName = uuidv4(); // Generate a unique filename
     const filePath = `pictures/${fileName}`;// Specify the desired file path

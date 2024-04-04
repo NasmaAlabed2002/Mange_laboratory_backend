@@ -1,10 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete,  UseInterceptors, UploadedFile } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Res, UseInterceptors, UploadedFile } from '@nestjs/common';
 import { LaboratoryService } from './laboratory.service';
 import { CreateLaboratoryDto } from './dto/create-laboratory.dto';
 import { UpdateLaboratoryDto } from './dto/update-laboratory.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import {ApiBody, ApiConsumes, ApiResponse, ApiCreatedResponse, ApiOkResponse, ApiParam , ApiTags} from '@nestjs/swagger';
 import { Laboratory } from './entities/laboratory.entity';
+import { Response } from 'express';
+
 @ApiTags('test')
 @Controller('laboratory')
 export class LaboratoryController {
@@ -60,10 +62,11 @@ export class LaboratoryController {
     return this.laboratoryService.findOne(id);
 
   }
-  @Get(':id:image')
-  getLaboratoryImage(@Param('id') id: string) {
-    return this.laboratoryService.getLaboratoryImage(id);
-
+  @Get(':id/image')
+  async getLaboratoryImage(@Param('id') id: string, @Res() res: Response) {
+    const image = await this.laboratoryService.getLaboratoryImage(id);
+    res.setHeader('Content-Type', 'image/jpeg');
+    res.send(image);
   }
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateLaboratoryDto: UpdateLaboratoryDto) {
