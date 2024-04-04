@@ -1,17 +1,39 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable,  NotFoundException } from '@nestjs/common';
 import { CreateLaboratoryDto } from './dto/create-laboratory.dto';
 import { UpdateLaboratoryDto } from './dto/update-laboratory.dto';
 import { Laboratory } from './entities/laboratory.entity';
-import { InjectModel } from '@nestjs/mongoose';''
+import { InjectModel , InjectConnection } from '@nestjs/mongoose';''
 import { InjectRepository } from '@nestjs/typeorm';
-import { Model } from 'mongoose';
+import { Model , Connection } from 'mongoose';
 import { Query  } from 'express-serve-static-core';
 import { v4 as uuidv4 } from 'uuid';
 import { createWriteStream } from 'fs';
+import { GridFSBucketReadStream, GridFSBucketWriteStream , GridFSBucket } from 'mongodb';
 @Injectable()
 export class LaboratoryService {
-  constructor(@InjectModel(Laboratory.name) private LaboratoryModel: Model<Laboratory>) {}
+  private gridFSBucket: GridFSBucket;
+  constructor( 
+    @InjectConnection() private connection: Connection,
+    @InjectModel(Laboratory.name) private LaboratoryModel: Model<Laboratory>) {
+    this.gridFSBucket = new GridFSBucket(this.connection.db);}
+////////////////////////////////////gridfs
 
+async uploadImage(LaboratorylId: string, file: Express.Multer.File){
+  const writeStream = this.gridFSBucket.openUploadStream(file.originalname, {
+    contentType: file.mimetype,
+  });
+
+  writeStream.write(file.buffer);
+  writeStream.end();
+  const imageId = (await writeStream).id;
+  await this.LaboratoryModel.findByIdAndUpdate(LaboratorylId, { imageId });
+  return imageId;
+}
+
+getImageStream(imageId): GridFSBucketReadStream {
+  return this.gridFSBucket.openDownloadStream(imageId);
+}
+  ///////////////////////////////gridfs
   async createLab(name_laboratory :string, name_manager:string ,address: string ,address_details: string ,number_phon:string, password:string, analysis_existing:string, imagePath:string) : Promise<Laboratory> {
     const createdLaboratory = new this.LaboratoryModel({ name_laboratory, name_manager ,address,address_details,number_phon, password, analysis_existing , image:imagePath});
     console.log(createdLaboratory);

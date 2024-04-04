@@ -39,7 +39,17 @@ export class LaboratoryController {
     return this.laboratoryService.createLab( name_laboratory, name_manager ,address,address_details,number_phon, password, analysis_existing , imagePath);
   
   }
- 
+ ////////////////////////////
+ @Post(':LaboratoryId/upload-image')
+ @UseInterceptors(FileInterceptor('file'))
+ async uploadImage(
+   @Param('LaboratoryId') LaboratoryId: string,
+   @UploadedFile() file: Express.Multer.File,
+ ): Promise<any> {
+   const imageId = await this.laboratoryService.uploadImage(LaboratoryId, file);
+   return { imageId };
+ }
+ //////////////////////////////
   @Get()
   async findAll() {
     return await this.laboratoryService.findAll();
