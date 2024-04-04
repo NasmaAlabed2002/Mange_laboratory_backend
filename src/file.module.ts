@@ -6,7 +6,7 @@ import { FileController } from './file.controller';
     imports:
      [
         MulterModule.register({
-        dest: './photo',
+        dest: './pictures',
       }),
     ],
     controllers: [FileController],
