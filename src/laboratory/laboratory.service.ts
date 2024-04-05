@@ -46,6 +46,13 @@ getImageStream(imageId): GridFSBucketReadStream {
     }
     return new Uint8Array(Buffer.from(Laboratory.image, 'base64'));
   }
+  async  generateImageURL(id: string) {
+    const imageUint8Array = await this.getLaboratoryImage(id);
+    const base64String = Buffer.from(imageUint8Array).toString('base64');
+    const imageURL = `data:image/jpeg;base64,${base64String}`;
+    
+    return imageURL;
+}
   async saveImage(file: Express.Multer.File): Promise<string> {
     const fileName = uuidv4(); // Generate a unique filename
     const filePath = `pictures/${fileName}`;// Specify the desired file path

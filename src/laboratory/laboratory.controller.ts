@@ -3,7 +3,7 @@ import { LaboratoryService } from './laboratory.service';
 import { CreateLaboratoryDto } from './dto/create-laboratory.dto';
 import { UpdateLaboratoryDto } from './dto/update-laboratory.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
-import {ApiBody, ApiConsumes, ApiResponse, ApiCreatedResponse, ApiOkResponse, ApiParam , ApiTags} from '@nestjs/swagger';
+import {ApiBody, ApiConsumes, ApiResponse, ApiTags} from '@nestjs/swagger';
 import { Laboratory } from './entities/laboratory.entity';
 import { Response } from 'express';
 
@@ -67,6 +67,11 @@ export class LaboratoryController {
     const image = await this.laboratoryService.getLaboratoryImage(id);
     res.setHeader('Content-Type', 'image/jpeg');
     res.send(image);
+  }
+  @Get(':id/imagestring')
+  async generateImageURL(@Param('id') id: string) {
+    const imagee = await this.laboratoryService.generateImageURL(id);
+    return imagee;
   }
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateLaboratoryDto: UpdateLaboratoryDto) {
